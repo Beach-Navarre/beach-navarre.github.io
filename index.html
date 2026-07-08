@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vacation Rentals Navarre Beach — Florida's Hidden Gulf Coast Paradise</title>
+<style>
+  :root{
+    --ink:#0f2e2f;
+    --sand:#f6ecda;
+    --sand-deep:#ecdcbc;
+    --teal:#1f6f78;
+    --teal-deep:#123f45;
+    --coral:#e2673a;
+    --coral-soft:#f1a684;
+    --seafoam:#bfe0d2;
+    --display: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+    --body: 'Avenir Next', 'Segoe UI', -apple-system, sans-serif;
+    --mono: 'Courier New', monospace;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--sand);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .rlink{
+    color:var(--coral);
+    text-decoration:none;
+    border-bottom:1.5px solid var(--coral-soft);
+    font-weight:600;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .rlink:hover{ border-color:var(--coral); color:var(--teal-deep);}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 6vw;
+    position:sticky;
+    top:0;
+    background:rgba(246,236,218,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--sand-deep);
+    z-index:50;
+  }
+  .brand{
+    font-family:var(--display);
+    font-style:italic;
+    font-size:1.25rem;
+    letter-spacing:0.01em;
+    color:var(--teal-deep);
+  }
+  .topbar nav a{
+    text-decoration:none;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-left:26px;
+    color:var(--teal-deep);
+    opacity:0.75;
+    transition:opacity .2s ease;
+  }
+  .topbar nav a:hover{ opacity:1;}
+  .cta-pill{
+    display:inline-block;
+    background:var(--coral);
+    color:var(--sand) !important;
+    padding:11px 22px;
+    border-radius:999px;
+    font-size:0.8rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .cta-pill:hover{ background:var(--teal-deep); transform:translateY(-1px);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 8vh 6vw 0;
+    max-width:1300px;
+    margin:0 auto;
+  }
+  .hero-eyebrow{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--coral);
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .hero-eyebrow::before{ content:"~"; font-size:1.1rem;}
+  .hero h1{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(2.3rem, 5vw, 4.1rem);
+    line-height:1.08;
+    max-width:18ch;
+    color:var(--teal-deep);
+  }
+  .hero h1 .accent{ font-style:italic; color:var(--coral);}
+  .hero-sub{
+    max-width:56ch;
+    margin-top:24px;
+    font-size:1.1rem;
+    color:#284c46;
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .ghost-link{
+    text-decoration:none;
+    font-size:0.92rem;
+    color:var(--teal-deep);
+    border-bottom:1px solid var(--teal-deep);
+    padding-bottom:2px;
+  }
+
+  /* Signature: sunset tide horizon */
+  .tide{
+    margin-top:7vh;
+    position:relative;
+    height:320px;
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .tide svg{ width:100%; height:100%; display:block;}
+  .tide-caption{
+    display:flex;
+    justify-content:space-between;
+    font-family:var(--mono);
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+    opacity:0.65;
+    margin-top:10px;
+    padding-bottom:6vh;
+  }
+
+  /* ---------- Section shell ---------- */
+  section.block{
+    padding: 8vh 6vw;
+    max-width:1180px;
+    margin:0 auto;
+    border-top:1px solid var(--sand-deep);
+  }
+  .block-head{
+    display:grid;
+    grid-template-columns: 0.85fr 1.6fr;
+    gap:56px;
+    margin-bottom:8px;
+  }
+  .block-head .label{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--coral);
+    position:sticky;
+    top:100px;
+    align-self:start;
+  }
+  .block-head h2{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(1.55rem, 2.5vw, 2.2rem);
+    max-width:20ch;
+    color:var(--teal-deep);
+  }
+  .prose{
+    grid-column:2;
+    max-width:70ch;
+    font-size:1.02rem;
+    color:#243e38;
+  }
+  .prose p + p{ margin-top:1.1em;}
+
+  @media (max-width: 760px){
+    .block-head{ grid-template-columns:1fr; gap:14px;}
+    .prose{ grid-column:1;}
+    .block-head .label{ position:static;}
+  }
+
+  /* ---------- Rental types cards ---------- */
+  .types-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2px;
+    background:var(--sand-deep);
+    margin-top:14px;
+  }
+  .type-card{
+    background:var(--sand);
+    padding:30px 26px;
+    transition:background .25s ease;
+  }
+  .type-card:hover{ background:#fff8ec;}
+  .type-card .tag{
+    font-family:var(--mono);
+    font-size:0.7rem;
+    color:var(--teal);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .type-card h3{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:1.1rem;
+    margin:10px 0 8px;
+    color:var(--teal-deep);
+  }
+  .type-card p{ font-size:0.92rem; color:#37554d;}
+  @media (max-width:760px){ .types-grid{ grid-template-columns:1fr;} }
+
+  /* ---------- Attractions tide list ---------- */
+  .attraction-list{ grid-column:2; max-width:74ch; margin-top:10px;}
+  .attraction{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:22px;
+    padding:22px 0;
+    border-top:1px solid var(--sand-deep);
+  }
+  .attraction:last-child{ border-bottom:1px solid var(--sand-deep);}
+  .attraction .k{
+    font-family:var(--display);
+    font-style:italic;
+    color:var(--coral);
+    font-size:1.02rem;
+  }
+  .attraction p{ color:#243e38; font-size:0.98rem;}
+  @media (max-width:760px){ .attraction-list{grid-column:1;} .attraction{grid-template-columns:1fr; gap:6px;} }
+
+  /* ---------- Benefits checklist ---------- */
+  .checklist{ grid-column:2; max-width:70ch; margin-top:10px;}
+  .check-item{
+    display:flex;
+    gap:16px;
+    padding:16px 0;
+    border-top:1px solid var(--sand-deep);
+    align-items:flex-start;
+  }
+  .check-item:last-child{ border-bottom:1px solid var(--sand-deep);}
+  .check-item .mark{
+    flex-shrink:0;
+    width:20px; height:20px;
+    border-radius:50%;
+    background:var(--seafoam);
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.7rem;
+    color:var(--teal-deep);
+    margin-top:2px;
+  }
+  @media (max-width:760px){ .checklist{grid-column:1;} }
+
+  /* ---------- Tips numbered ---------- */
+  .tips-list{ grid-column:2; max-width:70ch; margin-top:10px; counter-reset: tip;}
+  .tip{
+    display:flex;
+    gap:20px;
+    padding:18px 0;
+    border-top:1px solid var(--sand-deep);
+    align-items:baseline;
+  }
+  .tip:last-child{ border-bottom:1px solid var(--sand-deep);}
+  .tip::before{
+    counter-increment: tip;
+    content: counter(tip, decimal-leading-zero);
+    font-family:var(--mono);
+    color:var(--coral);
+    font-size:0.82rem;
+    flex-shrink:0;
+    padding-top:2px;
+  }
+  @media (max-width:760px){ .tips-list{ grid-column:1;} }
+
+  /* ---------- Closing / CTA banner ---------- */
+  .closing{
+    background:var(--teal-deep);
+    color:var(--sand);
+    padding:11vh 6vw;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .closing .label{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--coral-soft);
+    margin-bottom:18px;
+  }
+  .closing h2{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(1.8rem, 3.8vw, 2.9rem);
+    max-width:24ch;
+    margin:0 auto 20px;
+    line-height:1.15;
+  }
+  .closing p{
+    max-width:58ch;
+    margin:0 auto 34px;
+    color:#cfe6de;
+    font-size:1.04rem;
+  }
+  .closing .cta-pill{
+    background:var(--coral);
+    color:var(--sand) !important;
+    font-weight:600;
+    padding:14px 30px;
+    font-size:0.86rem;
+  }
+  .closing .cta-pill:hover{ background:var(--seafoam); color:var(--teal-deep) !important;}
+
+  footer{
+    padding:32px 6vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.8rem;
+    color:#3a5c54;
+    flex-wrap:wrap;
+    gap:10px;
+    background:var(--sand);
+  }
+  footer a{ text-decoration:underline; text-decoration-color:var(--coral);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">Navarre Beach Rentals</div>
+  <nav>
+    <a href="#types">Rental Types</a>
+    <a href="#attractions">Attractions</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#tips">Booking Tips</a>
+  </nav>
+  <a class="cta-pill" href="https://www.beachrentalsatnavarre.com/" target="_blank" rel="noopener">Book Now</a>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">Florida's Hidden Gulf Coast Paradise</div>
+  <h1>Wake up to the tide, not a wake-up call. <span class="accent">Navarre Beach</span> is waiting.</h1>
+  <p class="hero-sub">If you're looking for a peaceful beach vacation, <a class="rlink" href="https://www.beachrentalsatnavarre.com/" target="_blank" rel="noopener">Vacation Rentals Navarre Beach</a> offer the perfect place to relax and enjoy the beauty of Florida's Gulf Coast — white sand, calm water, and none of the crowds.</p>
+  <div class="hero-actions">
+    <a class="cta-pill" href="https://www.beachrentalsatnavarre.com/" target="_blank" rel="noopener">Browse Rentals</a>
+    <a class="ghost-link" href="#why">Read the guide ↓</a>
+  </div>
+
+  <div class="tide">
+    <svg viewBox="0 0 1200 320" preserveAspectRatio="none" role="img" aria-label="Sunset over the Gulf of Mexico shoreline">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#f6ecda"/>
+          <stop offset="45%" stop-color="#f1a684"/>
+          <stop offset="100%" stop-color="#e2673a"/>
+        </linearGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1f6f78"/>
+          <stop offset="100%" stop-color="#123f45"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1200" height="190" fill="url(#sky)"/>
+      <circle cx="600" cy="185" r="60" fill="#f6ecda" opacity="0.85"/>
+      <rect x="0" y="190" width="1200" height="130" fill="url(#sea)"/>
+      <path d="M0,190 Q150,175 300,190 T600,190 T900,190 T1200,190 L1200,210 Q1050,222 900,210 T600,210 T300,210 T0,210 Z" fill="#bfe0d2" opacity="0.5"/>
+      <path d="M0,200 Q150,188 300,200 T600,200 T900,200 T1200,200 L1200,215 Q1050,225 900,215 T600,215 T300,215 T0,215 Z" fill="#f6ecda" opacity="0.35"/>
+    </svg>
+    <div class="tide-caption">
+      <span>Gulf of Mexico</span>
+      <span>Navarre Beach, Florida</span>
+      <span>Golden Hour</span>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="why">
+  <div class="block-head">
+    <div class="label">01 — Why Here</div>
+    <h2>Why choose Navarre Beach for your next holiday?</h2>
+  </div>
+  <div class="prose">
+    <p>Unlike crowded tourist destinations, <a class="rlink" href="https://www.beachrentalsatnavarre.com/" target="_blank" rel="noopener">Navarre Beach</a> is known for its white sandy shoreline, crystal-clear water, and calm atmosphere. Vacation rentals give travelers more space, privacy, and comfort than traditional hotel rooms — whether you're planning a family vacation, a romantic getaway, or a trip with friends.</p>
+    <p>Many properties include full kitchens, private balconies, free Wi-Fi, swimming pools, and direct beach access. Staying in a rental lets you enjoy the destination like a local, with beautiful sunrises, peaceful surroundings, and modern accommodations at every turn.</p>
+  </div>
+</section>
+
+<section class="block" id="types">
+  <div class="block-head">
+    <div class="label">02 — Accommodations</div>
+    <h2>Types of rentals to choose from</h2>
+  </div>
+  <div class="types-grid">
+    <div class="type-card">
+      <span class="tag">Oceanfront</span>
+      <h3>Beachfront condos</h3>
+      <p>One-bedroom condos with ocean views, ideal for couples wanting the shoreline right outside.</p>
+    </div>
+    <div class="type-card">
+      <span class="tag">Spacious</span>
+      <h3>Luxury vacation homes</h3>
+      <p>Multiple bedrooms, private pools, and outdoor entertainment areas built for larger families.</p>
+    </div>
+    <div class="type-card">
+      <span class="tag">Charming</span>
+      <h3>Cozy cottages</h3>
+      <p>Fully furnished, comfortable, and quiet — a relaxed home base for a weekend or a week.</p>
+    </div>
+    <div class="type-card">
+      <span class="tag">Convenient</span>
+      <h3>Townhouses</h3>
+      <p>Laundry facilities, private parking, and modern kitchens for stays of any length.</p>
+    </div>
+    <div class="type-card">
+      <span class="tag">Furry Friends</span>
+      <h3>Pet-friendly rentals</h3>
+      <p>Bring the whole family — plenty of properties welcome pets without compromising comfort.</p>
+    </div>
+    <div class="type-card">
+      <span class="tag">Indulgent</span>
+      <h3>Premium properties</h3>
+      <p>Hot tubs, elevators, game rooms, and rooftop decks for a stay that feels like a resort.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="attractions">
+  <div class="block-head">
+    <div class="label">03 — Nearby</div>
+    <h2>Top attractions near your rental</h2>
+  </div>
+  <div class="attraction-list">
+    <div class="attraction">
+      <div class="k">Shoreline</div>
+      <p>The peaceful shoreline is perfect for swimming, sunbathing, or simply listening to the waves.</p>
+    </div>
+    <div class="attraction">
+      <div class="k">Fishing Pier</div>
+      <p>A favorite spot for anglers and photographers, with sweeping views of the Gulf of Mexico.</p>
+    </div>
+    <div class="attraction">
+      <div class="k">National Seashore</div>
+      <p>Gulf Islands National Seashore offers hiking trails, wildlife viewing, and untouched beaches nearby.</p>
+    </div>
+    <div class="attraction">
+      <div class="k">Water Sports</div>
+      <p>Paddleboarding, kayaking, snorkeling, and dolphin cruises for every kind of adventurer.</p>
+    </div>
+    <div class="attraction">
+      <div class="k">Local Flavor</div>
+      <p>Seafood restaurants serve freshly caught fish, shrimp, and oysters that showcase the coast.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="benefits">
+  <div class="block-head">
+    <div class="label">04 — Advantages</div>
+    <h2>Benefits of staying in a rental</h2>
+  </div>
+  <div class="checklist">
+    <div class="check-item"><span class="mark">✓</span><p>More living space — separate bedrooms, full kitchens, dining areas, and comfortable living rooms.</p></div>
+    <div class="check-item"><span class="mark">✓</span><p>Cook meals together as a family and cut down on dining costs during the trip.</p></div>
+    <div class="check-item"><span class="mark">✓</span><p>Private balconies and patios offer beautiful views and peaceful places to unwind.</p></div>
+    <div class="check-item"><span class="mark">✓</span><p>Amenities like pools, barbecue grills, fitness centers, and beach equipment included.</p></div>
+    <div class="check-item"><span class="mark">✓</span><p>Flexibility with meal times, entertainment, and daily schedules — no hotel restrictions.</p></div>
+    <div class="check-item"><span class="mark">✓</span><p>One spacious home is often more affordable than booking several hotel rooms for a group.</p></div>
+  </div>
+</section>
+
+<section class="block" id="tips">
+  <div class="block-head">
+    <div class="label">05 — Before You Book</div>
+    <h2>Tips for booking the best rental</h2>
+  </div>
+  <div class="tips-list">
+    <div class="tip">Book several months ahead for the best selection and prices, especially in peak season.</div>
+    <div class="tip">Read property descriptions, guest reviews, and cancellation policies carefully.</div>
+    <div class="tip">Compare amenities — beachfront access, parking, pools, internet, and pet-friendly options.</div>
+    <div class="tip">Choose a location based on your plans: direct beach access or proximity to restaurants.</div>
+    <div class="tip">Communicate with the property manager about check-in procedures or extra fees.</div>
+    <div class="tip">Pack the essentials — sunscreen, beach towels, and comfortable clothing.</div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="label">Start Planning</div>
+  <h2>Your Gulf Coast escape is closer than you think.</h2>
+  <p>Wake up to breathtaking Gulf views, walk the soft white sand, and watch the sunset from your own balcony. Discover the full range of <a class="rlink" style="color:var(--coral-soft); border-color:rgba(241,166,132,0.5);" href="https://www.beachrentalsatnavarre.com/" target="_blank" rel="noopener">Vacation Rentals Navarre Beach</a> has to offer and start your next escape today.</p>
+  <a class="cta-pill" href="https://www.beachrentalsatnavarre.com/" target="_blank" rel="noopener">Find Your Rental</a>
+</section>
+
+<footer>
+  <span>Guide compiled for general trip planning — always confirm details directly with your property manager.</span>
+  <span>Visit <a href="https://www.beachrentalsatnavarre.com/" target="_blank" rel="noopener">beachrentalsatnavarre.com</a> to browse available rentals.</span>
+</footer>
+
+</body>
+</html>
